@@ -1,6 +1,6 @@
 package com.cg.lms.entity;
 
-import java.util.Date;
+import java.util.Date; 
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
