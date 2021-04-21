@@ -1,22 +1,21 @@
 package com.cg.lms.entity;
 
-import java.util.Date;
+import java.util.Date; 
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "booksorder")
 public class BooksOrder {
 	@Id
-	@SequenceGenerator(name = "myBooksOrder",sequenceName = "myBooksOrderSequence01",initialValue = 1)
-	@GeneratedValue(generator = "myBoooksOrder")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int orderId;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

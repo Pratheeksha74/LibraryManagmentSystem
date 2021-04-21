@@ -1,17 +1,16 @@
 package com.cg.lms.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.Entity; 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "publishers")
 public class Publishers {
 	@Id
-	@SequenceGenerator(name = "myPublishers",sequenceName = "myPublishersSequence01",initialValue = 1)
-	@GeneratedValue(generator = "myPublishers")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int publisherId;
 	private String publisherName;
 	private String contactno;

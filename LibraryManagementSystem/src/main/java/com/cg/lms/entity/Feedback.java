@@ -5,18 +5,17 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "feedback")
 public class Feedback {
 	@Id
-	@SequenceGenerator(name = "myFeedback",sequenceName = "myFeedbackSequence01",initialValue = 1)
-	@GeneratedValue(generator = "myFeedback")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

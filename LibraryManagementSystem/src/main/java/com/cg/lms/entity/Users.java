@@ -1,22 +1,21 @@
 package com.cg.lms.entity;
 
-import java.util.Date;
+import java.util.Date; 
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class Users {
 	@Id
-	@SequenceGenerator(name = "myUsers",sequenceName = "myUsersequence01",initialValue = 1)
-	@GeneratedValue(generator = "myUsers")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int userid;
 	private String password;
 	private String firstName;
