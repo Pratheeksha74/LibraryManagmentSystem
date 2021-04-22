@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.lms.dao.FeedbackDao;
 import com.cg.lms.entity.Feedback;
+import com.cg.lms.entity.Users;
 
 @Service
 public class FeedbackServiceImpl implements FeedbackServiceI {
@@ -15,6 +16,7 @@ public class FeedbackServiceImpl implements FeedbackServiceI {
 
 	@Override
 	public Feedback writeFeedback(Feedback feedback) {
+
 		return feedDao.save(feedback);
 	}
 	

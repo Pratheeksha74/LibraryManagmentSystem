@@ -38,7 +38,11 @@ public class PublisherController {
 		return new ResponseEntity<Publishers>(publisherService.viewPublisherById(id),HttpStatus.OK);
 	}
 	
-	
+	@PostMapping(value = "/updatePublisher/{id}")
+	public ResponseEntity<Object> updatePublishers(@PathVariable int id, @RequestBody Publishers publisher) {
+		publisherService.updatePublisherDetails(id, publisher);
+		return new ResponseEntity<>("Updated Successfully",HttpStatus.OK);
+	}
 	
 	@DeleteMapping(value = "/deleteById/{id}")
 	public ResponseEntity<String> deletePublisherById(@PathVariable int id) {
