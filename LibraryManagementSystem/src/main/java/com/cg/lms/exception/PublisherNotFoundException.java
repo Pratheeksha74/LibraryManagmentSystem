@@ -1,6 +1,6 @@
 package com.cg.lms.exception;
 
-public class PublisherNotFoundException extends Exception{
+public class PublisherNotFoundException extends RuntimeException{
 	public PublisherNotFoundException() {
 		
 	}

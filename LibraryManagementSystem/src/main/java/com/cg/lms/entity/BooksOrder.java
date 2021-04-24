@@ -1,6 +1,6 @@
 package com.cg.lms.entity;
 
-import java.util.Date; 
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "booksorder")
 public class BooksOrder {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderId;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -27,12 +27,12 @@ public class BooksOrder {
 	private Publishers publishers;
 	
 	private int quantity;
-	private Date orderDate;
+	private LocalDate orderDate;
 	private String orderStatus;
 	public BooksOrder() {
 		super();
 	}
-	public BooksOrder(int orderId, Books books, Publishers publishers, int quantity, Date orderDate,
+	public BooksOrder(int orderId, Books books, Publishers publishers, int quantity, LocalDate orderDate,
 			String orderStatus) {
 		super();
 		this.orderId = orderId;
@@ -42,6 +42,17 @@ public class BooksOrder {
 		this.orderDate = orderDate;
 		this.orderStatus = orderStatus;
 	}
+	
+	public BooksOrder(Books books, Publishers publishers, int quantity, LocalDate orderDate,
+			String orderStatus) {
+		super();
+		this.books = books;
+		this.publishers = publishers;
+		this.quantity = quantity;
+		this.orderDate = orderDate;
+		this.orderStatus = orderStatus;
+	}
+	
 	public int getOrderId() {
 		return orderId;
 	}
@@ -66,10 +77,10 @@ public class BooksOrder {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public Date getOrderDate() {
+	public LocalDate getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(LocalDate orderDate) {
 		this.orderDate = orderDate;
 	}
 	public String getOrderStatus() {

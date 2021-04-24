@@ -1,6 +1,6 @@
 package com.cg;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -41,7 +41,7 @@ public class LibraryManagementSystemApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-//		Users u1 = new Users(1,"aed","Ahana","Rai","6789543217","ahana@gmail.com",new Date(18/02/2004),new Date(2/02/2020),new Date(2/03/2020),"Subscibed");
+//		Users u1 = new Users(5,"lisa@12","Lisa","Park","2376129876","lala@gmail.com",LocalDate.of(1996,10,3),LocalDate.of(2019,12,4),LocalDate.of(2020,1,4),"Not Subscibed");
 //		daoU.save(u1);
 //		System.out.println("Users saved");
 //		Feedback f1 = new Feedback(1,u1,new Date(25/02/2020),"Good Book","five","wow");
@@ -57,8 +57,6 @@ public class LibraryManagementSystemApplication implements CommandLineRunner{
 //		BooksOrder bo1 = new BooksOrder(1,b1,p1,2,new Date(12/05/2020),"Delivered");
 //		daoBO.save(bo1);
 //		System.out.println("BooksOrder saved");
-		
-		
 	}
 
 }

@@ -1,27 +1,38 @@
 package com.cg.lms.entity;
 
-import java.util.Date;  
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
 public class Users {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userid;
 	private String password;
+	
+	//@Size(min = 2, message = "FirstName should have atleast 2 characters")
 	private String firstName;
+	
+	//@Size(min = 2, message = "LastName should have atleast 2 characters")
 	private String lastName;
+	
+	//@Size(min = 10, max = 10, message = "Mobile number should be 10 characters long")
 	private String mobileno;
+	
+	//@Email(message = "Email must be in a valid format")
 	private String email;
-	private Date date_of_birth;
-	private Date subscription_date;
-	private Date sub_expire_date;
+	
+	private LocalDate date_of_birth;
+	private LocalDate subscription_date;
+	private LocalDate sub_expire_date;
 	private String subscription_status;
 	
 	public Users() {
@@ -29,9 +40,23 @@ public class Users {
 	}
 	
 	public Users(int userid, String password, String firstName, String lastName, String mobileno, String email,
-			Date date_of_birth, Date subscription_date, Date sub_expire_date, String subscription_status) {
+			LocalDate date_of_birth, LocalDate subscription_date, LocalDate sub_expire_date, String subscription_status) {
 		super();
 		this.userid = userid;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.mobileno = mobileno;
+		this.email = email;
+		this.date_of_birth = date_of_birth;
+		this.subscription_date = subscription_date;
+		this.sub_expire_date = sub_expire_date;
+		this.subscription_status = subscription_status;
+	}
+	
+	public Users(String password, String firstName, String lastName, String mobileno, String email,
+			LocalDate date_of_birth, LocalDate subscription_date, LocalDate sub_expire_date, String subscription_status) {
+		super();
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -79,22 +104,22 @@ public class Users {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getDate_of_birth() {
+	public LocalDate getDate_of_birth() {
 		return date_of_birth;
 	}
-	public void setDate_of_birth(Date date_of_birth) {
+	public void setDate_of_birth(LocalDate date_of_birth) {
 		this.date_of_birth = date_of_birth;
 	}
-	public Date getSubscription_date() {
+	public LocalDate getSubscription_date() {
 		return subscription_date;
 	}
-	public void setSubscription_date(Date subscription_date) {
+	public void setSubscription_date(LocalDate subscription_date) {
 		this.subscription_date = subscription_date;
 	}
-	public Date getSub_expire_date() {
+	public LocalDate getSub_expire_date() {
 		return sub_expire_date;
 	}
-	public void setSub_expire_date(Date sub_expire_date) {
+	public void setSub_expire_date(LocalDate sub_expire_date) {
 		this.sub_expire_date = sub_expire_date;
 	}
 	public String getSubscription_status() {
@@ -103,4 +128,5 @@ public class Users {
 	public void setSubscription_status(String subscription_status) {
 		this.subscription_status = subscription_status;
 	}
+	
 }

@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "books")
@@ -12,12 +14,22 @@ public class Books {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int bookid;
+	
+	//@NotEmpty(message = "Title of the book is not specified")
 	private String title;
+	
+	//@NotEmpty(message = "Subject is not specified")
 	private String subject;
+	
+	//@Size(min = 2, message = "Author name should have atleast 2 characters")
 	private String author;
+	
+	//@Size(min = 2, message = "Publisher name should have atleast 2 characters")
 	private String publisher;
 	private int published_year;
 	private String isbn_code;
+	
+	//@Size(min = 0, message = "Qantity cannot be negative")
 	private int quantity;
 	private double book_cost;
 	private String shelf_details;
@@ -30,6 +42,19 @@ public class Books {
 			String isbn_code, int quantity, double book_cost, String shelf_details) {
 		super();
 		this.bookid = bookid;
+		this.title = title;
+		this.subject = subject;
+		this.author = author;
+		this.publisher = publisher;
+		this.published_year = published_year;
+		this.isbn_code = isbn_code;
+		this.quantity = quantity;
+		this.book_cost = book_cost;
+		this.shelf_details = shelf_details;
+	}
+	public Books(String title, String subject, String author, String publisher, int published_year,
+			String isbn_code, int quantity, double book_cost, String shelf_details) {
+		super();
 		this.title = title;
 		this.subject = subject;
 		this.author = author;

@@ -1,6 +1,6 @@
 package com.cg.lms.entity;
 
-import java.util.Date; 
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,30 +10,47 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "feedback")
 public class Feedback {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "userid")
 	private Users user;
 	
-	private Date feedbackDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate feedbackDate;
+
 	private String description;
+	
+	@NotEmpty(message = "Rating should not be empty")
 	private String rating;
+
 	private String comments;
 	
 	public Feedback() {
 		super();
 	}
 	
-	public Feedback(int id, Users user, Date feedbackDate, String description, String rating, String comments) {
+	public Feedback(int id, Users user, LocalDate feedbackDate, String description, String rating, String comments) {
 		super();
 		this.id = id;
+		this.user = user;
+		this.feedbackDate = feedbackDate;
+		this.description = description;
+		this.rating = rating;
+		this.comments = comments;
+	}
+	
+	public Feedback(Users user, LocalDate feedbackDate, String description, String rating, String comments) {
+		super();
 		this.user = user;
 		this.feedbackDate = feedbackDate;
 		this.description = description;
@@ -56,11 +73,11 @@ public class Feedback {
 		this.user = user;
 	}
 	
-	public Date getFeedbackDate() {
+	public LocalDate getFeedbackDate() {
 		return feedbackDate;
 	}
 	
-	public void setFeedbackDate(Date feedbackDate) {
+	public void setFeedbackDate(LocalDate feedbackDate) {
 		this.feedbackDate = feedbackDate;
 	}
 	

@@ -8,8 +8,8 @@ import com.cg.lms.entity.Feedback;
 
 @Service
 public interface FeedbackServiceI {
-	public Feedback writeFeedback(Feedback feedback);
-	public void updateFeedbackbyId(int id, Feedback feedback);  //given int as return type
+	public Feedback writeFeedback(int userid, Feedback feedback);
+	public void updateFeedbackbyId(int id, Feedback feedback); 
 	public List<Feedback> viewFeedbackList();
 	public Feedback viewFeedBackByUser(int userid);
 }

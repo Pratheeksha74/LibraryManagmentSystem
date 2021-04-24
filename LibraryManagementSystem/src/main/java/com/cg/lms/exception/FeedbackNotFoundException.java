@@ -1,6 +1,6 @@
 package com.cg.lms.exception;
 
-public class FeedbackNotFoundException extends Exception{
+public class FeedbackNotFoundException extends RuntimeException{
 	public FeedbackNotFoundException() {
 		
 	}
