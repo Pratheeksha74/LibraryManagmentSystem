@@ -27,6 +27,15 @@ import com.cg.lms.service.FeedbackServiceI;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+/****************************************************************************
+ * 
+ * @author ASUS
+ * Description: This class is used to add,update, get and delete Feedback
+ * Version: v1.1
+ * Created 20 April 2021
+ * 
+ ****************************************************************************/
+
 @Api("Feedback Controller")
 @RestController
 @RequestMapping(value = "/feedback")
@@ -35,7 +44,20 @@ public class FeedbackController {
 	@Autowired
 	FeedbackServiceI feedbackService;
 	
-	//ADDING NEW FEEDBACK
+	/****************************************************************************
+	 * 
+	 * Method: addFeedback
+	 * Description: This method is used to add new Feedback
+	 * @param id
+	 * @param feedback
+	 * @param bindingResult
+	 * @PostMapping: 
+	 * @return ResponseEntity<String>
+	 * @throws MethodArgumentNotValidException
+	 * Created 20 April 2021
+	 * 
+	 ****************************************************************************/
+	
 	@ApiOperation(value = "add feedback")
 	@PostMapping(value = "/addNewFeedback/{id}")
 	public ResponseEntity<String> addFeedback(@Valid @PathVariable int id, @RequestBody Feedback feedback, BindingResult bindingResult) throws MethodArgumentNotValidException{
@@ -56,8 +78,17 @@ public class FeedbackController {
 		return new ResponseEntity<String>("Inserted", HttpStatus.OK);
 	}
 	
-	
-	//UPDATE FEEDBACK
+	/****************************************************************************
+	 * 
+	 * Method: updateFeedback
+	 * Description: This method is used to update feedback
+	 * @param id
+	 * @param feedback
+	 * @PostMapping: 
+	 * @return ResponseEntity<Object>
+	 * Created 20 April 2021
+	 * 
+	 ****************************************************************************/
 	@ApiOperation(value = "update feedback")
 	@PostMapping(value = "/updateFeedback/{id}")
 	public ResponseEntity<Object> updateFeedback(@PathVariable int id, @RequestBody Feedback feedback){
@@ -69,16 +100,31 @@ public class FeedbackController {
 		}
 	}
 	
-	
-	//GET ALL FEEDBACK
+	/****************************************************************************
+	 * 
+	 * Method: getAllFeedback
+	 * Description: This method is used to get all Feedback
+	 * @return List<Feedback>
+	 * Created 20 April 2021
+	 * 
+	 ****************************************************************************/
+
 	@ApiOperation(value = "get all feedback")
 	@GetMapping(value = "/getAllFeedback")
 	public List<Feedback> getAllFeedback() {
 		return feedbackService.viewFeedbackList();
 	}
 	
+	/****************************************************************************
+	 * 
+	 * Method: getFeedbackById
+	 * Description: This method is used to get Feedback by Id
+	 * @param userid
+	 * @return ResponseEntity<Feedback>
+	 * Created 20 April 2021
+	 * 
+	 ****************************************************************************/
 	
-	//GET FEEDBACK BY USERID
 	@ApiOperation(value = "get feedback by userid")
 	@GetMapping(value = "/getById/{userid}")
 	public ResponseEntity<Feedback> getFeedbackById(@PathVariable int userid) {

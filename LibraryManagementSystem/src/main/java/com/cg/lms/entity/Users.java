@@ -2,12 +2,14 @@ package com.cg.lms.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -18,16 +20,16 @@ public class Users {
 	private int userid;
 	private String password;
 	
-	//@Size(min = 2, message = "FirstName should have atleast 2 characters")
+	@NotEmpty(message = "FirstName should not be empty")
 	private String firstName;
 	
-	//@Size(min = 2, message = "LastName should have atleast 2 characters")
+	@NotEmpty(message = "LastName should not be empty")
 	private String lastName;
 	
-	//@Size(min = 10, max = 10, message = "Mobile number should be 10 characters long")
+	@Size(min = 10, max = 10, message = "Mobile number should be 10 characters long")
 	private String mobileno;
 	
-	//@Email(message = "Email must be in a valid format")
+	@Email(message = "Email must be in a valid format")
 	private String email;
 	
 	private LocalDate date_of_birth;

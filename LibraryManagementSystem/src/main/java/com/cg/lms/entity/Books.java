@@ -15,21 +15,22 @@ public class Books {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int bookid;
 	
-	//@NotEmpty(message = "Title of the book is not specified")
+	@NotEmpty(message = "Title of the book is not specified")
 	private String title;
 	
-	//@NotEmpty(message = "Subject is not specified")
+	@NotEmpty(message = "Subject is not specified")
 	private String subject;
 	
-	//@Size(min = 2, message = "Author name should have atleast 2 characters")
+	@Size(min = 2, message = "Author name should have atleast 2 characters")
 	private String author;
 	
-	//@Size(min = 2, message = "Publisher name should have atleast 2 characters")
+	@Size(min = 2, message = "Publisher name should have atleast 2 characters")
 	private String publisher;
 	private int published_year;
+	
+	@Size(min = 13, max = 13, message = "ISBN code should have should be 13 characters long")
 	private String isbn_code;
 	
-	//@Size(min = 0, message = "Qantity cannot be negative")
 	private int quantity;
 	private double book_cost;
 	private String shelf_details;

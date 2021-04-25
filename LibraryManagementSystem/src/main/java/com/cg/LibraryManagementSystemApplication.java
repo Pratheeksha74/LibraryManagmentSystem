@@ -17,6 +17,8 @@ import com.cg.lms.entity.BooksOrder;
 import com.cg.lms.entity.Feedback;
 import com.cg.lms.entity.Publishers;
 import com.cg.lms.entity.Users;
+import com.cg.lms.service.FeedbackServiceI;
+import com.cg.lms.service.PublisherServiceI;
 
 @SpringBootApplication
 public class LibraryManagementSystemApplication implements CommandLineRunner{
@@ -34,6 +36,12 @@ public class LibraryManagementSystemApplication implements CommandLineRunner{
 	
 	@Autowired
 	PublisherDao daoP;
+	
+	@Autowired
+	PublisherServiceI publisherserviceI;
+	
+	@Autowired
+	FeedbackServiceI feedbackServiceI;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(LibraryManagementSystemApplication.class, args);
@@ -57,6 +65,23 @@ public class LibraryManagementSystemApplication implements CommandLineRunner{
 //		BooksOrder bo1 = new BooksOrder(1,b1,p1,2,new Date(12/05/2020),"Delivered");
 //		daoBO.save(bo1);
 //		System.out.println("BooksOrder saved");
+//		Publishers publisher = new Publishers("Akash Publisher", "9872343214","akash@gmail.com","street 10","street 1","Madikeri","Karnataka",654271);
+//		publisherserviceI.addPublisher(publisher);
+//		Publishers found = publisherserviceI.viewPublisherById(publisher.getPublisherId());
+//		System.out.println("publisher "+ publisher.getPublisherId());
+//		System.out.println("found "+ found.getPublisherId());
+//		Publishers publisher = new Publishers("Ashish Publisher", "9872673214","ashish@gmail.com","street 9","street 2","Mysore","Karnataka",754274);
+//		publisherserviceI.addPublisher(publisher);
+//		System.out.println("Added");
+//		publisherserviceI.removePublisher(publisher.getPublisherId());
+//		System.out.println("Removed");
+		
+//		Users user = new Users("abc123","Araa","Sharma","9876876576","aaaa@gmail.com",LocalDate.of(2000, 1, 12),LocalDate.of(2021, 3, 24),LocalDate.of(2021, 4, 24),"Not Subscribed");
+//		daoU.save(user);
+//		System.out.println("Users inserted");
+//		int id = user.getUserid();
+//		System.out.println(id);
+//		feedbackServiceI.writeFeedback(id,new Feedback(user,LocalDate.of(2020, 7, 13),"Science","four","Learnt new things"));
 	}
 
 }

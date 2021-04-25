@@ -17,7 +17,7 @@ public class Publishers {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int publisherId;
 	
-	@Size(min = 2, message = "Name should have atleast 2 characters")
+	@NotEmpty(message = "Name should not be empty")
 	private String publisherName;
 	
 	@Size(min = 10, max = 10, message = "Contact number should be 10 characters long")
@@ -31,10 +31,8 @@ public class Publishers {
 	
 	private String address2;
 	
-	@NotEmpty(message = "City should not be empty")
 	private String city;
 	
-	@NotEmpty(message = "State should not be empty")
 	private String state;
 	
 	private int pincode;

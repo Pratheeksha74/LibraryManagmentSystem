@@ -25,7 +25,6 @@ public class Feedback {
 	@JoinColumn(name = "userid")
 	private Users user;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate feedbackDate;
 
 	private String description;
@@ -52,6 +51,14 @@ public class Feedback {
 	public Feedback(Users user, LocalDate feedbackDate, String description, String rating, String comments) {
 		super();
 		this.user = user;
+		this.feedbackDate = feedbackDate;
+		this.description = description;
+		this.rating = rating;
+		this.comments = comments;
+	}
+	
+	public Feedback(LocalDate feedbackDate, String description, String rating, String comments) {
+		super();
 		this.feedbackDate = feedbackDate;
 		this.description = description;
 		this.rating = rating;

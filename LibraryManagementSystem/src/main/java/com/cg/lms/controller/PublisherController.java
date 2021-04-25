@@ -27,14 +27,14 @@ import com.cg.lms.service.PublisherServiceI;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-/******************************************
+/********************************************************************************
  * 
  * @author ASUS
  * Description: This class is used to add,update, get and delete publishers
  * Version: v1.1
  * Created 20 April 2021
  * 
- **************************************/
+ ********************************************************************************/
 
 @Api("Publisher Controller")
 @RestController
@@ -43,7 +43,7 @@ public class PublisherController {
 	@Autowired
 	PublisherServiceI publisherService;
 	
-	/**
+	/****************************************************************************
 	 * 
 	 * Method: addPublisher
 	 * Description: This method adds a new Publisher 
@@ -54,7 +54,7 @@ public class PublisherController {
 	 * @PostMapping: 
 	 * Created: 20 April 2021
 	 * 
-	 */
+	  ****************************************************************************/
 	
 	@ApiOperation(value = "add new publisher")
 	@PostMapping(value = "/addNewPublisher")
@@ -72,11 +72,33 @@ public class PublisherController {
 		return new ResponseEntity<String>("Inserted Successfully",HttpStatus.OK);
 	}
 	
+	
+	/****************************************************************************
+	 * 
+	 * Method: getAllPublishers
+	 * Description: Displays all publishers 
+	 * @return List<Publishers>
+	 * @GetMapping: 
+	 * Created: 20 April 2021
+	 * 
+	 ****************************************************************************/
+	
 	@ApiOperation(value = "get all publishers")
 	@GetMapping(value = "/getAll")
 	public List<Publishers> getAllPublishers() {
 		return publisherService.viewPublishersList();
 	}
+	
+	/****************************************************************************
+	 * 
+	 * Method: getPublisherById
+	 * Description: Displays publisher by Id
+	 * @param id
+	 * @GetMapping:
+	 * @return ResponseEntity<Publishers>
+	 * Created: 20 April 2021
+	 * 
+	 ****************************************************************************/
 	
 	@ApiOperation(value = "get publisher by id")
 	@GetMapping(value = "/getById/{id}")
@@ -87,6 +109,21 @@ public class PublisherController {
 			throw new PublisherNotFoundException("Publisher doesn't exists");
 		}
 	}
+	
+	
+	/****************************************************************************
+	 * 
+	 * Method: updatePublisher
+	 * Description: Updates Publisher by Id
+	 * @param id
+	 * @param publisher
+	 * @param bindingResult
+	 * @PostMapping: 
+	 * @return ResponseEntity<Object>
+	 * @throws MethodArgumentNotValidException
+	 * Created: 20 April 2021
+	 * 
+	 ****************************************************************************/
 	
 	@ApiOperation(value = "update publisher")
 	@PostMapping(value = "/updatePublisher/{id}")
@@ -107,6 +144,17 @@ public class PublisherController {
 			throw new PublisherNotFoundException("Publisher doesn't exists");
 		}
 	}
+	
+	/****************************************************************************
+	 * 
+	 * Method: deletePublisher
+	 * Description: Deletes Publisher by Id
+	 * @param id
+	 * @DeleteMapping: 
+	 * @return ResponseEntity<String>
+	 * Created: 20 April 2021
+	 * 
+	 ****************************************************************************/
 	
 	@ApiOperation(value = "delete publisher")
 	@DeleteMapping(value = "/deleteById/{id}")
