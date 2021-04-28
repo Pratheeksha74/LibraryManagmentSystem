@@ -26,7 +26,6 @@ public class Publishers {
 	@Email(message = "Email should be in a valid format")
 	private String email;
 	
-	@NotEmpty(message = "Address should not be empty")
 	private String address1;
 	
 	private String address2;

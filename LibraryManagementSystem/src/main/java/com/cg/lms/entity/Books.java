@@ -18,14 +18,14 @@ public class Books {
 	@NotEmpty(message = "Title of the book is not specified")
 	private String title;
 	
-	@NotEmpty(message = "Subject is not specified")
 	private String subject;
 	
-	@Size(min = 2, message = "Author name should have atleast 2 characters")
+	@NotEmpty(message = "Author of the book is not specified")
 	private String author;
 	
-	@Size(min = 2, message = "Publisher name should have atleast 2 characters")
+	@NotEmpty(message = "Publisher of the book is not specified")
 	private String publisher;
+	
 	private int published_year;
 	
 	@Size(min = 13, max = 13, message = "ISBN code should have should be 13 characters long")

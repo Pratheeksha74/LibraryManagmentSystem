@@ -22,7 +22,6 @@ public class Users {
 	@NotEmpty(message = "FirstName should not be empty")
 	private String firstName;
 	
-	@NotEmpty(message = "LastName should not be empty")
 	private String lastName;
 	
 	@Size(min = 10, max = 10, message = "Mobile number should be 10 characters long")

@@ -62,16 +62,7 @@ public class FeedbackController {
 	
 	@ApiOperation(value = "add feedback")
 	@PostMapping(value = "/addNewFeedback/{id}")
-	public ResponseEntity<String> addFeedback(@Valid @PathVariable int id, @RequestBody Feedback feedback, BindingResult bindingResult) throws MethodArgumentNotValidException{
-		if(bindingResult.hasErrors()) {
-			List<FieldError> errors = bindingResult.getFieldErrors();
-			System.out.println(errors);
-			List<String> errorlist = new ArrayList<String>();
-			for(FieldError err: errors) {
-				errorlist.add(err.getDefaultMessage());
-			}
-			throw new ValidationException(errorlist);
-		}
+	public ResponseEntity<String> addFeedback(@PathVariable int id, @RequestBody Feedback feedback) {
 		try {
 			feedbackService.writeFeedback(id,feedback);
 		}catch(UserNotFoundException e) {

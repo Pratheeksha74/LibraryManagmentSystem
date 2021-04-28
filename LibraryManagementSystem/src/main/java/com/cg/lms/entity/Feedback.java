@@ -27,7 +27,6 @@ public class Feedback {
 
 	private String description;
 	
-	@NotEmpty(message = "Rating should not be empty")
 	private String rating;
 
 	private String comments;

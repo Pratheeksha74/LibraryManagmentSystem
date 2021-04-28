@@ -39,7 +39,7 @@ import com.cg.lms.service.PublisherServiceI;
 		@Test
 		void addPublisherTestWithName() {
 			Publishers publisher = new Publishers("MU Publisher", "9872343214","mu12@gmail.com","street 12","street 1","Horil","Delhi",654221);
-			publisherserviceI.addPublisher(publisher);
+			//publisherserviceI.addPublisher(publisher);
 			assertEquals("MU Publisher", publisherserviceI.addPublisher(publisher).getPublisherName());
 		}
 		
@@ -72,11 +72,6 @@ import com.cg.lms.service.PublisherServiceI;
 			assertThrows(PublisherNotFoundException.class, ()->publisherserviceI.viewPublisherById(id));	
 		}
 		
-	//	@Test
-	//	void getAllPublishersTest() {
-	//		List<Publishers> list = publisherserviceI.viewPublishersList();
-	//	}
-		
 		@Test
 		void updateFeedback() {
 			assertThrows(FeedbackNotFoundException.class, ()->feedbackServiceI.updateFeedbackbyId(10, new Feedback(LocalDate.of(2020, 7, 13),"Science","four","Learnt new things")));
@@ -87,8 +82,4 @@ import com.cg.lms.service.PublisherServiceI;
 			assertEquals(1, feedbackServiceI.viewFeedBackByUser(1).getUser().getUserid());
 		}
 		
-	//	@Test
-	//	void getAllFeedbackTest() {
-	//		
-	//	}
 	}

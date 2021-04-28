@@ -37,7 +37,7 @@ public class FeedbackServiceImpl implements FeedbackServiceI {
 	 * @return Publishers
 	 * Created: 20 April 2021
 	 * 
-	 */
+	 ********************************************************************************/
 	
 	@Override
 	public Feedback writeFeedback(int userid,Feedback feedback) {
@@ -95,7 +95,6 @@ public class FeedbackServiceImpl implements FeedbackServiceI {
 	public Feedback viewFeedBackByUser(int userid) {
 		if(userDao.existsById(userid)) {
 			Users user = userDao.findById(userid).get();
-			//return feedDao.findById(userid).get();
 			return feedDao.findByUser(user);
 		}else throw new UserNotFoundException();
 	}
