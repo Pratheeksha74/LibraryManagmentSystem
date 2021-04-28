@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name = "feedback")
 public class Feedback {

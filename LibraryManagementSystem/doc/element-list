@@ -1,1 +1,7 @@
+com.cg
+com.cg.lms.config
+com.cg.lms.controller
+com.cg.lms.dao
+com.cg.lms.entity
+com.cg.lms.exception
 com.cg.lms.service

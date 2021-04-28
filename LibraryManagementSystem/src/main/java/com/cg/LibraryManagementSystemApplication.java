@@ -49,9 +49,9 @@ public class LibraryManagementSystemApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-//		Users u1 = new Users(5,"lisa@12","Lisa","Park","2376129876","lala@gmail.com",LocalDate.of(1996,10,3),LocalDate.of(2019,12,4),LocalDate.of(2020,1,4),"Not Subscibed");
-//		daoU.save(u1);
-//		System.out.println("Users saved");
+		Users u1 = new Users("risha@12","Risha","Park","2376129876","risha@gmail.com",LocalDate.of(1995,10,4),LocalDate.of(2020,12,4),LocalDate.of(2021,1,4),"Not Subscibed");
+		daoU.save(u1);
+		System.out.println("Users saved");
 //		Feedback f1 = new Feedback(1,u1,new Date(25/02/2020),"Good Book","five","wow");
 //		daoF.save(f1);
 //		System.out.println("saved feedback");
