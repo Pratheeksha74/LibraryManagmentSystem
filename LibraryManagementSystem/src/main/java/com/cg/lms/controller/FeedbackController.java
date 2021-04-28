@@ -38,7 +38,6 @@ import io.swagger.annotations.ApiOperation;
  ****************************************************************************/
 
 @Api("Feedback Controller")
-@CrossOrigin //When we use angular the server can access any ports
 @RestController
 @RequestMapping(value = "/feedback")
 public class FeedbackController {
@@ -50,6 +49,7 @@ public class FeedbackController {
 	 * 
 	 * Method: addFeedback
 	 * Description: This method is used to add new Feedback
+	 * @PathVariable: Used to inject values from the URL into a method parameter. 
 	 * @param id
 	 * @param feedback
 	 * @param bindingResult
@@ -85,6 +85,7 @@ public class FeedbackController {
 	 * Method: updateFeedback
 	 * Description: This method is used to update feedback
 	 * @param id
+	 * @RequestBody: bind the incoming HTTP request body to that methods parameter.
 	 * @param feedback
 	 * @PostMapping: 
 	 * @return ResponseEntity<Object>
